@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Todo</title>
+	<meta charset="utf-8">
+  	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!--css link-->
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<!-----link for font awesome--->
+	<script src="https://kit.fontawesome.com/60d42fa51d.js" crossorigin="anonymous"></script>
+</head>
+<body>
+	
+	<h1>Todo</h1>
+
+	<nav>
+		<div class="notes">
+			<div class="upperbtns">
+				<button class="overviewbtn">overview</button>
+				<button class="bydatebtn">bydate</button>
+			</div>
+			<!---input--->
+			<div class="input">
+				<input type="text" id="inputsection" placeholder="add something to the list by pressing the button on the right">
+				<button id="inputadd"><i class="fas fa-plus-square" onclick="taskAdding()"></i></button>
+			</div>
+				<!----first task----->
+				<ul id="myList">
+					<li id="newtask">add task to your list</li>
+				</ul>
+				<!---hovering buttons--->
+			<div class='hoveringButtons'>
+				<button><i class="fas fa-edit"></i></button>
+				<button><i class="far fa-check-square"></i></button>
+				<button><i class="far fa-times-circle"></i></button>
+				<button><i class="far fa-hand-point-down"></i></button>
+				<button><i class="far fa-hand-point-up"></i></button>
+			</div>	
+		</div>
+	</nav>
+
+
+	<script type="text/javascript">
+		function taskAdding() {
+			var moreTask = document.createElement('li');
+			var theTask = document.getElementById('inputsection').value
+			var t = document.createTextNode(theTask);
+			moreTask.appendChild(t);
+			document.getElementById("myList").appendChild(moreTask);
+			document.getElementById('inputsection').value = '';
+		}
+	
+	</script>
+
+</body>
+</html>
