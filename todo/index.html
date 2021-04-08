@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Todo</title>
+	<meta charset="utf-8">
+  	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!--css link-->
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<!-----link for font awesome--->
+	<script src="https://kit.fontawesome.com/60d42fa51d.js" crossorigin="anonymous"></script>
+</head>
+<body>
+	
+	<h1>Todo</h1>
+
+	<nav>
+		<div class="notes">
+			<div class="upperbtns">
+				<button class="overviewbtn" onclick=callBoth()>overview</button>
+				<button class="bydatebtn">bydate</button>
+			</div>
+			<!---input--->
+			<div class="input">
+				<input type="text" id="inputsection" placeholder="add something to the list by pressing the button on the right">
+				<button id="inputadd" onclick="taskAdding()"><i class="fas fa-plus-square" ></i></button>
+			</div>
+	
+				<!---hovering buttons--->
+			<div class='tasks'>
+				<h3>You can remove a task by clicking on it</h3>
+				<!----first task----->
+				<ol id="myList">
+					<li id="newtask">add task to your list</li>
+					<div class="hoveringButtons">
+						<button><i class="fas fa-edit"></i></button>
+						<button><i class="far fa-check-square"></i></button>
+						<button><i class="far fa-times-circle"></i></button>
+						<button><i class="far fa-hand-point-down"></i></button>
+						<button><i class="far fa-hand-point-up"></i></button>
+					</div>
+				</ol>
+			</div>	
+		</div>
+	</nav>
+
+
+	<script type="text/javascript">
+
+		function taskAdding() {
+			if (document.getElementById('inputsection').value === '') {
+				document.getElementById('inputsection').placeholder = 'First put a task and submit with the button on the right'
+			} else {
+				
+				var moreTask = document.createElement('li');
+				var theTask = document.getElementById('inputsection').value
+				var t = document.createTextNode(theTask);
+				moreTask.appendChild(t);
+				document.getElementById("myList").appendChild(moreTask);
+				document.getElementById('inputsection').value = '';
+
+				
+			}
+		}
+
+
+		function btnAdding() {
+			
+			var moreBtn = document.createElement('button')
+			document.body.appendChild(moreBtn)
+		}
+
+			
+		
+		function styleAdding() {
+			var edit = document.createElement('i')
+			document.body.button.insertAdjacentElement(afterbegin,edit)
+		}
+		function callBoth() {
+			btnAdding()
+			styleAdding()
+		}
+		const myTasks = document.getElementById('myList')
+		myTasks.addEventListener('click', function (e) {
+			e.target.remove();
+		})
+	</script>
+
+</body>
+</html>
